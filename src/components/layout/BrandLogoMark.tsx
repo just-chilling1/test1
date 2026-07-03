@@ -30,14 +30,18 @@ export function BrandLogoMark({ size = "sm", className = "" }: BrandLogoMarkProp
     );
   }
 
-  const Icon = getNavIcon(brand.logo.icon);
-  const iconSize = size === "lg" ? 28 : size === "md" ? 22 : 20;
+  if (brand.logo.type === "icon") {
+    const Icon = getNavIcon(brand.logo.icon);
+    const iconSize = size === "lg" ? 28 : size === "md" ? 22 : 20;
 
-  return (
-    <div
-      className={`${s.box} bg-accent flex items-center justify-center rounded-lg shadow-gold shrink-0 ${className}`}
-    >
-      <Icon size={iconSize} className="text-black" />
-    </div>
-  );
+    return (
+      <div
+        className={`${s.box} bg-accent flex items-center justify-center rounded-lg shadow-gold shrink-0 ${className}`}
+      >
+        <Icon size={iconSize} className="text-black" />
+      </div>
+    );
+  }
+
+  return null;
 }

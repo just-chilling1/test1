@@ -87,9 +87,9 @@ export default function CalculatorPage() {
   const { dailyVisitors, conversionRate, commissionPerSale, currency, locale } =
     incomeCalculatorDefaults;
 
-  const [visitors, setVisitors] = useState(dailyVisitors.default);
-  const [conversion, setConversion] = useState(conversionRate.default);
-  const [commission, setCommission] = useState(commissionPerSale.default);
+  const [visitors, setVisitors] = useState<number>(dailyVisitors.default);
+  const [conversion, setConversion] = useState<number>(conversionRate.default);
+  const [commission, setCommission] = useState<number>(commissionPerSale.default);
 
   const projection = useMemo(
     () =>

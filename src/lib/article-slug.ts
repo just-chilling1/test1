@@ -1,3 +1,5 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
+
 export function slugifyTitle(title: string): string {
   const base = title
     .toLowerCase()
@@ -11,17 +13,7 @@ export function slugifyTitle(title: string): string {
 }
 
 export async function ensureUniqueArticleSlug(
-  supabase: {
-    from: (table: string) => {
-      select: (columns: string) => {
-        eq: (column: string, value: string) => {
-          neq: (column: string, value: string) => {
-            maybeSingle: () => Promise<{ data: { id: string } | null }>;
-          };
-        };
-      };
-    };
-  },
+  supabase: SupabaseClient,
   baseSlug: string,
   articleId: string
 ): Promise<string> {

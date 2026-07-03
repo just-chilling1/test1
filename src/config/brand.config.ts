@@ -1,3 +1,7 @@
+type BrandLogo =
+  | { type: "image"; src: string; alt: string }
+  | { type: "icon"; icon: string };
+
 export const brand = {
   /** Software display name — set via NEXT_PUBLIC_PRODUCT_NAME in .env */
   productName: process.env.NEXT_PUBLIC_PRODUCT_NAME ?? "NovaAI",
@@ -6,10 +10,10 @@ export const brand = {
   authTagline: "Secure member access",
   signupTagline: "Create your account",
   logo: {
-    type: "image" as const,
+    type: "image",
     src: "/logo.png",
     alt: "NovaAI",
-  },
+  } as BrandLogo,
   colors: {
     primary: "#00D084",
     secondary: "#22D3EE",
